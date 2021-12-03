@@ -169,6 +169,11 @@ class SentenceTransformer(nn.Sequential):
                     for sent_idx in range(len(out_features['sentence_embedding'])):
                         row =  {name: out_features[name][sent_idx] for name in out_features}
                         embeddings.append(row)
+                elif output_value == 'hidden_embeddings':  #Return all outputs
+                    embeddings = []
+                    for sent_idx in [-4,-3,-2,-1]:
+                        row =  {name: out_features[name][sent_idx] for name in out_features}
+                        embeddings.append(row)
                 else:   #Sentence embeddings
                     embeddings = out_features[output_value]
                     embeddings = embeddings.detach()
