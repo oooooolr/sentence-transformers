@@ -168,7 +168,7 @@ class SentenceTransformer(nn.Sequential):
                     embeddings = []
                     
                     for sent_idx in range(len(out_features['all_layer_embeddings'])):
-                        row =  {name: out_features['all_layer_embeddings'][sent_idx]}
+                        row =  {'all_layer_embeddings': out_features['all_layer_embeddings'][sent_idx]}
                         embeddings.append(row)
                
                 else:   #Sentence embeddings
