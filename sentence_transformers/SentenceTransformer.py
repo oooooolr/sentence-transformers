@@ -166,7 +166,7 @@ class SentenceTransformer(nn.Sequential):
                         embeddings.append(token_emb[0:last_mask_id+1])
                 elif output_value == 'all_layer_embeddings':  #Return all outputs
                     embeddings = []
-                    for sent_idx in range(len(out_features['sentence_embedding'])):
+                    for sent_idx in range(len(out_features['all_layer_embeddings'])):
                         row =  {name: out_features[name][sent_idx] for name in out_features}
                         embeddings.append(row)
                 elif output_value == 'last4layers':  #Return all outputs
