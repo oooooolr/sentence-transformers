@@ -169,11 +169,7 @@ class SentenceTransformer(nn.Sequential):
                     for sent_idx in range(len(out_features['all_layer_embeddings'])):
                         row =  {name: out_features[name][sent_idx] for name in out_features}
                         embeddings.append(row)
-                elif output_value == 'last4layers':  #Return all outputs
-                    embeddings = []
-                    for sent_idx in [-4,-3,-2,-1]:
-                        row =  {name: out_features[name][sent_idx] for name in out_features}
-                        embeddings.append(row)
+               
                 else:   #Sentence embeddings
                     embeddings = out_features[output_value]
                     embeddings = embeddings.detach()
